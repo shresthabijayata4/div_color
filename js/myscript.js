@@ -1,19 +1,50 @@
 
 
-const randomColor = () => Math.floor(Math.random() * 16777215).toString(16);
+// const randomColor = () => Math.floor(Math.random() * 16777215).toString(16);
 
+
+
+// function changeColor() {
+//     setInterval(
+//         function () {
+//             const container = document.getElementsByClassName('col_container')
+//             for (y = 0; y < container.length; y++) {
+//                 container[y].style.backgroundColor = "#" + randomColor();
+//             }
+//         }, 3000);
+// }
+
+// function randnum() {
+    
+//     console.log(x);
+//     return x;
+//   }
+
+
+
+
+
+
+
+const randomcolor = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow ", "Cyan", "Purple"];   
 function changeColor() {
     setInterval(
         function () {
+            var arr= [];
+           
             const container = document.getElementsByClassName('col_container')
             for (y = 0; y < container.length; y++) {
-                container[y].style.backgroundColor = "#" + randomColor();
+                do{
+                    var randnum = Math.floor((Math.random() * 9));
+                }while( arr[randnum])
+                 arr[randnum] = true;
+
+                container[y].style.backgroundColor = randomcolor[randnum];
             }
         }, 3000);
 }
 
-
-
+// arr = [] , arr[5] = true , [emoty, emptry, trye, empty , empty, true]
 
 function initialload_Color() {
     let color = "#";
@@ -62,34 +93,7 @@ for (x = 0; x < 3; x++) {
 
 
 
-// const row1 = document.createElement("div");
-// const row2 = document.createElement('div');
-// const row3 = document.createElement('div');
-// const col1=document.createElement('div');
-// const col2=document.createElement('div');
-// const col3=document.createElement('div');
-// const col4=document.createElement('div');
-// const col5=document.createElement('div');
-// const col6=document.createElement('div');
-// const col7=document.createElement('div');
-// const col8=document.createElement('div');
-// const col9=document.createElement('div');
-// const h1 = document.createElement("h1");
-// const node = document.createTextNode("Welcome!!");
 
-// row1.id ="row_first";
-// row1.setAttribute("style", "border: 2px solid black");
-// row2.id="row_second";
-// row3.id="row_third";
-// col1.id="col_first";
-// col2.id="col_second";
-// col3.id="col_third";
-// col4.id="col_fourth";
-// col5.id="col_fifth";
-// col6.id="col_sixth";
-// col7.id="col_seventh";
-// col8.id="col_eighth";
-// col9.id="col_ninth";
 
 // h1.appendChild(node);
 // var body = document.getElementsByTagName("body")[0];
