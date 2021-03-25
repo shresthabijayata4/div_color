@@ -1,40 +1,57 @@
 
-    // var div = document.createElement('div');
-    
-    // div.id = 'container';
-    // div.innerHTML = 'Hi there!';
-    // div.className = 'border pad';
-   
-    // document.body.appendChild(div);
 
-    for(x=0; x<3;x++) {
-        var div_row = document.createElement('div');
-        div_row.className = 'row_container';
-        div_row.setAttribute(
-            "style", "border: 2px solid black; height: 200px; padding:30px; display: flex; margin: 10px 0px");
-       document.body.appendChild(div_row);
-        for(y=0; y<3;y++) {
-            var div_col = document.createElement('div');
-            div_col.className='col_container';
-            div_col.setAttribute(
-                "style", "border: 1px solid black; height: 100px; width:100%; padding:30px; margin: 0px 20px"
-                );
-       
-        div_row.appendChild(div_col);
-       
-        }      
+const randomColor = () => Math.floor(Math.random() * 16777215).toString(16);
+
+function changeColor() {
+    setInterval(
+        function () {
+            const container = document.getElementsByClassName('col_container')
+            for (y = 0; y < container.length; y++) {
+                container[y].style.backgroundColor = "#" + randomColor();
+            }
+        }, 3000);
+}
+
+
+
+
+function initialload_Color() {
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+        color += Math.floor((Math.random() * 16)).toString(16);
     }
 
-  
-  
-    // div_row.appendChild(div_col);
-    // div_row.appendChild(div_col);
+    return color;
+}
 
-  
 
-   
 
-    
+
+for (x = 0; x < 3; x++) {
+    var div_row = document.createElement('div');
+    div_row.className = 'row_container';
+    div_row.setAttribute(
+        "style", "border: 2px solid black; height: 200px; padding:30px; display: flex; margin: 10px 0px");
+    document.body.appendChild(div_row);
+    for (y = 0; y < 3; y++) {
+        var div_col = document.createElement('div');
+        div_col.className = 'col_container';
+        var a = initialload_Color();
+        div_col.setAttribute("style", "border: 1px solid black; height: 100px; width:100%; padding:30px; margin: 0px 20px; background-color:" + a);
+        div_row.appendChild(div_col);
+        setInterval(initialload_Color, 3000);
+
+        changeColor();
+
+    }
+}
+
+
+
+
+
+
+
 
 
 
@@ -117,9 +134,9 @@
 
 
 // document.querySelector("button").addEventListener("click", function () {
-   
+
 //     document.querySelector("body").style.background = randmColor();
-  
+
 
 // });
 
